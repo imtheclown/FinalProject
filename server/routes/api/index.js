@@ -8,6 +8,7 @@ const router = require('express').Router();
 require('./sampleApiRequest')(router);
 require('./CreateGuest')(router);
 require('./SearchGuest')(router);
+require('./RegisterGuest')(router);
 // Add additional API endpoints below
 
 module.exports = router;

@@ -13,12 +13,23 @@ async function SearchForGuest(req, res, next) {
   } else {
     await RetrieveGuest(req.query.searchtext)
       .then(response => {
-        req.responseData = {
-          statusCode: 200,
-          body: {
-            data: response
-          }
-        };
+        if (response && response.message && response.status) {
+          req.responseData = {
+            statusCode: response.status,
+            body: {
+              message: response.message,
+              status: response.status
+            }
+          };
+        } else {
+          req.responseData = {
+            statusCode: 200,
+            body: {
+              data: response,
+              status: 200
+            }
+          };
+        }
         return next();
       })
       .catch(error => {

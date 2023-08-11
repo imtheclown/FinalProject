@@ -47,11 +47,29 @@ const FindGuestBySearchString = require('./SearchGuest')
 async function RetrieveGuest(searchText) {
   if (searchText.length) {
     return await FindGuestBySearchString(searchText).catch(() => {
-      return 'something when wrong while searching for guests';
+      return {
+        message: 'something when wrong while searching for guests',
+        status: 400
+      };
     });
   }
 }
+
+const UpdateGuestInDB = require('./GuestUpdate').UpdateGuestInDB;
+
+async function UpdateGuest(updatedGuestDetails) {
+  if (updatedGuestDetails) {
+    return await UpdateGuestInDB(updatedGuestDetails).catch(() => {
+      return {
+        message: 'A problem was encountered while updating the guest details',
+        status: 400
+      };
+    });
+  }
+}
+
 module.exports = {
   FindAndAdd,
-  RetrieveGuest
+  RetrieveGuest,
+  UpdateGuest
 };

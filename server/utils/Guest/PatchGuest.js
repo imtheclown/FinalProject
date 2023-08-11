@@ -10,7 +10,6 @@ async function PatchGuestInDB(guestID) {
     return 1;
   } catch (error) {
     console.log(error);
-    throw error;
   }
 }
 

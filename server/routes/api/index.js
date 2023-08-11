@@ -9,6 +9,7 @@ require('./sampleApiRequest')(router);
 require('./CreateGuest')(router);
 require('./SearchGuest')(router);
 require('./RegisterGuest')(router);
+require('./UpdateGuest')(router);
 // Add additional API endpoints below
 
 module.exports = router;

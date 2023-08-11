@@ -10,6 +10,7 @@ require('./CreateGuest')(router);
 require('./SearchGuest')(router);
 require('./RegisterGuest')(router);
 require('./UpdateGuest')(router);
+require('./GetEvent')(router);
 // Add additional API endpoints below
 
 module.exports = router;

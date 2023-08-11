@@ -8,7 +8,8 @@ const Schema = mongoose.Schema;
 const models = {
   SampleModel: require('./sampleModel'),
   GuestModel: require('./Guest'),
-  RegisteredGuestModel: require('./RegisteredGuest')
+  RegisteredGuestModel: require('./RegisteredGuest'),
+  EventModel: require('./EventDetails')
 };
 
 // Create object for export. Only the `exportModels` object will be

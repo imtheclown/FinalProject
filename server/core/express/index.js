@@ -1,5 +1,5 @@
 'use strict';
-
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -40,6 +40,8 @@ module.exports = () => {
   let app = express();
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
+  app.use('/static', express.static(path.join(__basedir, 'public')));
+
   app.use(cors());
 
   // Initialize routes for the app

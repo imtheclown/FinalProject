@@ -19,6 +19,17 @@ function FindEmailInDB(email) {
   });
 }
 
+const RegisteredGuestModel = require('../../models').RegisteredGuestModel;
+async function GetRegisteredUsers(event_id) {
+  try {
+    const eventRegisteredGuest = await RegisteredGuestModel.find({ event_id });
+    return eventRegisteredGuest;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
 function FindGuestBySearchString(searchString) {
   const regExp = new RegExp(searchString, 'ig');
   return new Promise((resolve, reject) => {
@@ -38,5 +49,6 @@ function FindGuestBySearchString(searchString) {
 
 module.exports = {
   FindEmailInDB,
-  FindGuestBySearchString
+  FindGuestBySearchString,
+  GetRegisteredUsers
 };

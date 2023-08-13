@@ -2,7 +2,12 @@
 const RetrieveGuest = require('../../utils/Guest').RetrieveGuest;
 
 async function SearchForGuest(req, res, next) {
-  if (!req.query || !Object.keys(req.query).length || !req.query.searchtext) {
+  if (
+    !req.query ||
+    !Object.keys(req.query).length ||
+    !req.query.searchtext ||
+    !req.query.event_id
+  ) {
     req.responseData = {
       statusCode: 400,
       body: {
@@ -11,7 +16,7 @@ async function SearchForGuest(req, res, next) {
     };
     return next();
   } else {
-    await RetrieveGuest(req.query.searchtext)
+    await RetrieveGuest(req.query.searchtext, req.query.event_id)
       .then(response => {
         if (response && response.message && response.status) {
           req.responseData = {

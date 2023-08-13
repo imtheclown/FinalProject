@@ -5,8 +5,7 @@ module.exports = (mongoose, Schema) => {
     name: { type: String, required: true },
     email: { type: String, required: true },
     mobile_number: { type: String, required: true },
-    affiliation: { type: String, required: true },
-    is_registered: { type: Boolean, default: false }
+    affiliation: { type: String, required: true }
   });
   return mongoose.model('Guest', GuestSchema);
 };

@@ -18,12 +18,13 @@ async function AddRegisteredGuestController(req, res, next) {
     }
   }
   req.responseData = {
-    status: 400,
+    statusCode: 400,
     body: {
       message: 'data provided is insufficient',
       status: 400
     }
   };
+  return next();
 }
 
 module.exports = {

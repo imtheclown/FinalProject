@@ -74,10 +74,15 @@ async function RetrieveGuest(searchText, event_id) {
               matchedGuests[matchedGuest]._id.toString()
             );
           });
-          const { _id, email, mobile_number, affiliation } = matchedGuests[
-            matchedGuest
-          ];
+          const {
+            _id,
+            email,
+            mobile_number,
+            affiliation,
+            name
+          } = matchedGuests[matchedGuest];
           let newValue = {
+            name,
             _id,
             email,
             mobile_number,
